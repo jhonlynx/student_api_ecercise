@@ -4,7 +4,7 @@ require_once '../controllers/StudentController.php';
 
 $database = new Database();
 $db = $database->connect();
-$controller = new StudentController($db);
+$controllers = new StudentController($db);
 
 
 $requestMethod = $_SERVER['REQUEST_METHOD'];
@@ -12,9 +12,9 @@ $action = $_GET['action'] ?? null;
 
 try {
     if ($requestMethod === 'GET' && $action === 'all') {
-        $controller->getAllStudents();
+        $controllers->getAllStudents();
     } elseif ($requestMethod === 'GET' && isset($_GET['id'])) {
-        $controller->getStudentById($_GET['id']);
+        $controllers->getStudentById($_GET['id']);
     } elseif ($requestMethod === 'POST' && $action === 'add') {
         $data = json_decode(file_get_contents("php://input"), true);
 
@@ -23,7 +23,7 @@ try {
             exit;
         }
 
-        $controller->addStudent($data);
+        $controllers->addStudent($data);
     } elseif ($requestMethod === 'PUT' && $action === 'update') {
         $data = json_decode(file_get_contents("php://input"), true);
 
@@ -32,9 +32,9 @@ try {
             exit;
         }
 
-        $controller->updateStudent($data);
+        $controllers->updateStudent($data);
     } elseif ($requestMethod === 'DELETE' && isset($_GET['id'])) {
-        $controller->deleteStudent($_GET['id']);
+        $controllers->deleteStudent($_GET['id']);
     } else {
         echo json_encode([
             "message" => "Invalid request.",
