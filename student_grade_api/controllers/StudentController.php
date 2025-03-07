@@ -1,23 +1,23 @@
 <?php
-require_once '../models/Student.php';
+require_once '../repositories/StudentRepository.php';
 require_once '../core/Response.php';
 
 class StudentController {
-    private $model;
+    private $repositories;
 
     public function __construct($db) {
-        $this->model = new Student($db);
+        $this->repositories = new StudentRepository($db);
     }
 
     public function getAllStudents() {
-        $students = $this->model->getAllStudents();
-        Response::json($students);
+        $StudentRepository = $this->repositories->getAllStudents();
+        Response::json($StudentRepository);
     }
 
     public function getStudentById($id) {
-        $student = $this->model->getStudentById($id);
-        if ($student) {
-            Response::json($student);
+        $StudentRepository = $this->repositories->getStudentById($id);
+        if ($StudentRepository) {
+            Response::json($StudentRepository);
         } else {
             Response::json(["message" => "Student not found."], 404);
         }
@@ -25,7 +25,7 @@ class StudentController {
 
     public function addStudent($data) {
         if (isset($data['name'], $data['midterm_score'], $data['final_score'])) {
-            $this->model->addStudent($data['name'], $data['midterm_score'], $data['final_score']);
+            $this->repositories->addStudent($data['name'], $data['midterm_score'], $data['final_score']);
             Response::json(["message" => "Student added successfully."]);
         } else {
             Response::json(["message" => "Invalid input."], 400);
@@ -34,7 +34,7 @@ class StudentController {
 
     public function updateStudent($data) {
         if (isset($data['id'], $data['midterm_score'], $data['final_score'])) {
-            $this->model->updateStudent($data['id'], $data['midterm_score'], $data['final_score']);
+            $this->repositories->updateStudent($data['id'], $data['midterm_score'], $data['final_score']);
             Response::json(["message" => "Student updated successfully."]);
         } else {
             Response::json(["message" => "Invalid input."], 400);
@@ -42,7 +42,7 @@ class StudentController {
     }
 
     public function deleteStudent($id) {
-        $this->model->deleteStudent($id);
+        $this->repositories->deleteStudent($id);
         Response::json(["message" => "Student deleted successfully."]);
     }
 }

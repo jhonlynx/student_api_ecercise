@@ -12,10 +12,10 @@
           "method": "GET",
           "header": [],
           "url": {
-            "raw": "http://localhost/student_grade_api/public/index.php?action=all",
+            "raw": "http://localhost/student_grade_api/services/StudentService.php?action=all",
             "protocol": "http",
             "host": ["localhost"],
-            "path": ["student_grade_api", "public", "index.php"],
+            "path": ["student_grade_api", "services", "StudentService.php"],
             "query": [
               {
                 "key": "action",
@@ -40,10 +40,10 @@
             "raw": "{\n  \"name\": \"John Doe\",\n  \"midterm_score\": 80,\n  \"final_score\": 90\n}"
           },
           "url": {
-            "raw": "http://localhost/student_grade_api/public/index.php?action=add",
+            "raw": "http://localhost/student_grade_api/services/StudentService.php?action=add",
             "protocol": "http",
             "host": ["localhost"],
-            "path": ["student_grade_api", "public", "index.php"],
+            "path": ["student_grade_api", "services", "StudentService.php"],
             "query": [
               {
                 "key": "action",
@@ -59,10 +59,10 @@
           "method": "GET",
           "header": [],
           "url": {
-            "raw": "http://localhost/student_grade_api/public/index.php?id=1",
+            "raw": "http://localhost/student_grade_api/services/StudentService.php?id=1",
             "protocol": "http",
             "host": ["localhost"],
-            "path": ["student_grade_api", "public", "index.php"],
+            "path": ["student_grade_api", "services", "StudentService.php.php"],
             "query": [
               {
                 "key": "id",
@@ -87,10 +87,10 @@
             "raw": "{\n  \"id\": 1,\n  \"midterm_score\": 85,\n  \"final_score\": 95\n}"
           },
           "url": {
-            "raw": "http://localhost/student_grade_api/public/index.php?action=update",
+            "raw": "http://localhost/student_grade_api/services/StudentService.php?action=update",
             "protocol": "http",
             "host": ["localhost"],
-            "path": ["student_grade_api", "public", "index.php"],
+            "path": ["student_grade_api", "services", "StudentService.php"],
             "query": [
               {
                 "key": "action",
@@ -106,10 +106,10 @@
           "method": "DELETE",
           "header": [],
           "url": {
-            "raw": "http://localhost/student_grade_api/public/index.php?id=1",
+            "raw": "http://localhost/student_grade_api/services/StudentService.php?id=1",
             "protocol": "http",
             "host": ["localhost"],
-            "path": ["student_grade_api", "public", "index.php"],
+            "path": ["student_grade_api", "services", "StudentService.php.php"],
             "query": [
               {
                 "key": "id",
